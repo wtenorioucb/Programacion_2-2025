@@ -14,7 +14,7 @@ int main()
 
     cout << "\nEntre 40 y 200" << endl;
     cout << "numero_aleatorio = ( rand() % (max - min + 1) ) + min" << endl;
-    max = 200;
+    max = 2000;
     min = 40;
     // Generar y mostrar 10 números aleatorios
     for (int i = 1; i <= 10; ++i)
