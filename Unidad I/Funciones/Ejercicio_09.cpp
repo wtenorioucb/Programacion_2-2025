@@ -7,14 +7,9 @@ int Funcion03(int &x, int y);
 
 int main()
 {
-    int numero1, numero2, resultado;
-    cout << "Ingrese el primer número: ";
-    cin >> numero1;
-    cout << "Ingrese el segundo número: ";
-    cin >> numero2;
-
+    system("cls");
+    int numero1 = 125, numero2 = 39, resultado = 0;
     resultado = Funcion03(numero1, numero2);
-
     cout << "\nValor final de la variable numero1: " << numero1 << endl;
     cout << "Valor final de la variable numero2: " << numero2 << endl;
     cout << "Valor final de la variable resultado: " << resultado << endl;
