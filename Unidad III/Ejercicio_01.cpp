@@ -56,12 +56,18 @@ Computer IngresarDatoComputadora()
 
 void IngresarDatos(int n)
 {
-    Computer computadora;
+    Computer computadora, computadoraMayor;
+    double precioMayor = 0;
     for (int i = 1; i <= n; i++)
     {
         computadora = IngresarDatoComputadora();
-        //DesplegarDatosComputadora(computadora);
-    }    
+        if (computadora.precio_venta > precioMayor)
+        {
+            computadoraMayor = computadora;
+            precioMayor = computadora.precio_venta;
+        }
+    }
+    DesplegarDatosComputadora(computadoraMayor);
 }
 
 void DesplegarDatosComputadora(Computer computadora)
