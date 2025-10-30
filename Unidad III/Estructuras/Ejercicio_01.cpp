@@ -22,7 +22,6 @@ int main()
     system("cls");
     cout << "Ingrese la cantidad de productos a registrar: ";
     cin >> n;
-    cin.ignore();
     for (int i = 1; i <= n; i++)
     {
         cout << "PRODUCTO " << i << endl;
