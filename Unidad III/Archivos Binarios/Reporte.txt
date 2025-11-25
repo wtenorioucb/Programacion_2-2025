@@ -1,0 +1,7 @@
+ESTUDIANTES
+============
+CI	Nombres		Apellidos		Carrera
+------------------------------------------------------------------------
+11111	WILLY EDWIN	TENORIO PALZA	INGENIERIA DE SISTEMAS
+22222	JUAN ROBERTO	PINTO SALVATIERRA	ADMINISTRACION DE EMPRESAS
+---------------------------------------------------------------------

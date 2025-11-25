@@ -41,6 +41,7 @@ void CrearMateria(string archivoMaterias);
 void CrearCarrera(string archivoCarreras);
 void ListadoCarreras(string archivoCarreras);
 void ListadoEstudiantes(string archivoEstudiantes, string archivoCarreras);
+void ListadoEstudiantesImpresora(string archivoEstudiantes, string archivoCarreras);
 string ObtenerNombreCarrera(string archivoCarreras, int codigoCarrera);
 
 int main()
@@ -79,6 +80,7 @@ void MenuOpciones(string archivoEstudiantes, string archivoMaterias, string arch
                     cout << "================" << endl;
                     cout << "\t1. Crear Estudiante" << endl;
                     cout << "\t2. Listado Estudiantes" << endl;
+                    cout << "\t3. Listado Estudiantes (Impresora)" << endl;
                     cout << "\t0. Salir" << endl;
                     cout << "Seleccione una opcion: ";
                     cin >> subopcion;
@@ -90,6 +92,10 @@ void MenuOpciones(string archivoEstudiantes, string archivoMaterias, string arch
                             break;
                         case 2:
                             ListadoEstudiantes(archivoEstudiantes, archivoCarreras);
+                            system("pause");
+                            break;
+                        case 3:
+                            ListadoEstudiantesImpresora(archivoEstudiantes, archivoCarreras);
                             system("pause");
                             break;
                         default:
@@ -307,6 +313,33 @@ void ListadoEstudiantes(string archivoEstudiantes, string archivoCarreras)
         cout << "No se pudo abrir el archivo." << endl;
     }
     archivo.close();
+}
+
+void ListadoEstudiantesImpresora(string archivoEstudiantes, string archivoCarreras)
+{
+    Estudiante _estudiante;
+    ifstream archivo;
+    ofstream impresora;
+    archivo.open(archivoEstudiantes, ios::binary);
+    impresora.open("Reporte.txt");
+    if (archivo.good())
+    {
+        impresora << "ESTUDIANTES" << endl;
+        impresora << "============" << endl;
+        impresora << "CI\tNombres\t\tApellidos\t\tCarrera" << endl;
+        impresora << "------------------------------------------------------------------------" << endl;
+        while (archivo.read((char*)&_estudiante, sizeof(Estudiante)))
+        {
+            impresora << _estudiante.ci << "\t" << _estudiante.nombres << "\t" << _estudiante.apellidos << "\t" << ObtenerNombreCarrera(archivoCarreras, _estudiante.codigo_carrera) << endl;
+        }
+        impresora << "---------------------------------------------------------------------" << endl;
+    }
+    else
+    {
+        cout << "No se pudo abrir el archivo." << endl;
+    }
+    archivo.close();
+    impresora.close();
 }
 
 string ObtenerNombreCarrera(string archivoCarreras, int codigoCarrera)
